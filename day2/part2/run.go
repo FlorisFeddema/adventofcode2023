@@ -30,23 +30,20 @@ func checkScoreValid(scores []string) int {
 	for _, score := range scores {
 		amounts := strings.Split(score, ",")
 		for _, amount := range amounts {
-			if strings.Contains(amount, "red") {
-				amountNumber, _ := strconv.Atoi(strings.Split(amount, " ")[1])
-				if amountNumber > red {
-					red = amountNumber
-				}
-			} else if strings.Contains(amount, "green") {
-				amountNumber, _ := strconv.Atoi(strings.Split(amount, " ")[1])
-				if amountNumber > green {
-					green = amountNumber
-				}
-			} else if strings.Contains(amount, "blue") {
-				amountNumber, _ := strconv.Atoi(strings.Split(amount, " ")[1])
-				if amountNumber > blue {
-					blue = amountNumber
-				}
-			}
+			red = getAmountForColor(amount, "red", red)
+			green = getAmountForColor(amount, "green", green)
+			blue = getAmountForColor(amount, "blue", blue)
 		}
 	}
 	return red * green * blue
+}
+
+func getAmountForColor(input string, color string, currentValue int) int {
+	if strings.Contains(input, color) {
+		amountNumber, _ := strconv.Atoi(strings.Split(input, " ")[1])
+		if amountNumber > currentValue {
+			currentValue = amountNumber
+		}
+	}
+	return currentValue
 }
