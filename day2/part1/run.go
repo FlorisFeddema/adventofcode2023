@@ -3,7 +3,6 @@ package main
 import (
 	"adventofcode2023/helper"
 	"log/slog"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -38,7 +37,7 @@ func checkScoreValid(scores []string) bool {
 			} else if strings.Contains(amount, "blue") {
 				maxAmount = 14
 			}
-			amountNumber, _ := strconv.Atoi(strings.Split(amount, " ")[1])
+			amountNumber := helper.StringToInt(strings.Split(amount, " ")[1])
 			if amountNumber > maxAmount {
 				return false
 			}

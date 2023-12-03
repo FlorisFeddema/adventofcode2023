@@ -3,7 +3,6 @@ package main
 import (
 	"adventofcode2023/helper"
 	"log/slog"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -40,7 +39,7 @@ func checkScoreValid(scores []string) int {
 
 func getAmountForColor(input string, color string, currentValue int) int {
 	if strings.Contains(input, color) {
-		amountNumber, _ := strconv.Atoi(strings.Split(input, " ")[1])
+		amountNumber := helper.StringToInt(strings.Split(input, " ")[1])
 		if amountNumber > currentValue {
 			currentValue = amountNumber
 		}

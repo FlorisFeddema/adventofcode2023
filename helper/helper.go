@@ -2,6 +2,7 @@ package helper
 
 import (
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -13,4 +14,9 @@ func ReadFileToStringArray(fileName string) []string {
 
 	data := strings.TrimSpace(string(fileData))
 	return strings.Split(data, "\n")
+}
+
+func StringToInt(input string) int {
+	tmp, _ := strconv.Atoi(input)
+	return tmp
 }
