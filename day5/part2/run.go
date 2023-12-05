@@ -15,7 +15,7 @@ func main() {
 
 	seeds := strings.Split(strings.TrimPrefix(inputData[0], "seeds: "), " ")
 
-	mappings := [][]string{}
+	var mappings [][]string
 	mappings = append(mappings, []string{})
 
 	mappingCount := 0
@@ -29,9 +29,19 @@ func main() {
 		mappings[mappingCount] = append(mappings[mappingCount], inputData[i])
 	}
 
-	for i := 0; i < len(seeds); i++ {
-		value := helper.StringToInt(seeds[i+1])
+	maxValue := 0
+	for i := 0; i < len(seeds); i += 2 {
+		value := helper.StringToInt(seeds[i])
 		length := helper.StringToInt(seeds[i+1])
+		if value+length > maxValue {
+			maxValue = value + length
+		}
+	}
+
+	println(maxValue)
+
+	for i := 0; i < len(seeds); i++ {
+		value := helper.StringToInt(seeds[i])
 		for _, mapping := range mappings {
 			for _, typeRange := range mapping {
 				rangeValues := strings.Split(typeRange, " ")

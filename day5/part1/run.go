@@ -15,7 +15,7 @@ func main() {
 
 	seeds := strings.Split(strings.TrimPrefix(inputData[0], "seeds: "), " ")
 
-	mappings := [][]string{}
+	var mappings [][]string
 	mappings = append(mappings, []string{})
 
 	mappingCount := 0
