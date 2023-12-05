@@ -53,5 +53,3 @@ func main() {
 	fmt.Printf("Result: %[1]d\n", result)
 	fmt.Printf("Time: %s\n", elapsed)
 }
-
-// 79 81 81 81 74 78 78 82
