@@ -29,8 +29,9 @@ func main() {
 		mappings[mappingCount] = append(mappings[mappingCount], inputData[i])
 	}
 
-	for _, seed := range seeds {
-		value := helper.StringToInt(seed)
+	for i := 0; i < len(seeds); i++ {
+		value := helper.StringToInt(seeds[i+1])
+		length := helper.StringToInt(seeds[i+1])
 		for _, mapping := range mappings {
 			for _, typeRange := range mapping {
 				rangeValues := strings.Split(typeRange, " ")
